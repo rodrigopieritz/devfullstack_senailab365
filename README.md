@@ -8,5 +8,4 @@ Lab365 prepares students for the reality of technology companies. The entire pro
 
 duration: 9 months, with a total workload of 900 hours.
 
-About this repository
 This repository was created to store all week challenges given during the course.
