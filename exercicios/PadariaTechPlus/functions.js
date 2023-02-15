@@ -2,17 +2,17 @@ let valueList = [];
 function itemRegister() {
   let itemPrice = parseFloat(document.getElementById("itemPrice").value);
   if (itemPrice != 0) {
-    let display = document.getElementById("display");
+    let displayItens = document.getElementById("displayItens");
+    let displaySum = document.getElementById("displaySum");
     valueList.push(itemPrice);
-    display.innerHTML = valueList;
-    let totalValue = 0;
-    for (var i = 0; i < valueList.length; i++) {
-        totalValue += numbers[i];
-        console.log(totalValue)
-    //melhorar display com informação * usar for each
-  }} else {
-    
-    alert("Compra Finalizada. O Total da Compra é R$" + totalValue);
-     }
-   }
-console.log(valueList);
+    displayItens.innerHTML = valueList.forEach((mercadoria)=>{mercadoria});
+    let totalValue = valueList.reduce((total, quantidade) => {
+      return (total = total + quantidade);
+    });
+    displaySum.innerHTML = "TOTAL: R$" + totalValue;
+  } else {
+    alert(
+      "Digite o total de dinheiro entregue para que o troco seja calculado"
+    );
+  }
+}
