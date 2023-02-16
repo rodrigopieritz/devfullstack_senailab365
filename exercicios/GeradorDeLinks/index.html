@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Link WathsApp</title>
+</head>
+<body>
+<h1>Gerador de Link para WhatsApp</h1>
+<p>informe o número para o qual você deseja enviar a mensagem:</p>
+<input id="number" placeholder="4899881234">
+<br>
+<p>Informe a mensagem abaixo</p>
+<input id="message" placeholder="Sua mensagem Aqui">
+<br>
+<p>Clique em "Gerar Link"</p>
+<button 
+id="generateLink"
+onclick="{generate()}"
+type = "submit">
+Gerar Link
+</button>
+<div 
+id="link"
+style = " 
+color: blue;">
+</div>
+</div>
+</body>
+<script src = "./functions.js"></script>
+</html>
