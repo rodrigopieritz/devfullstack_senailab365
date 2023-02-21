@@ -15,10 +15,8 @@ body {
 }
 
 .container {
-    background-color: #FCE46D;
-    color:#A1140A ;
-    padding: 2px;
-    box-shadow: 2px 2px #A1140A;
+    background-color: #2e0466;
+    padding: 30px 100px;
     margin-top: 2px;
     display: flex;
     flex-direction: column;
