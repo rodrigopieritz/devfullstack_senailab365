@@ -6,7 +6,8 @@ function itemRegister() {
     let displayItens = document.getElementById("displayItens");
     let displaySum = document.getElementById("displaySum");
     valueList.push(itemPrice);
-    displayItens.innerHTML = valueList
+    
+    displayItens.innerHTML = valueList.map(item=>`<li> R$ ${item}</li>`).join(``);
      let totalValue = valueList.reduce((total, quantidade) => {
       return (total = total + quantidade);
     });
