@@ -26,8 +26,8 @@ function run (){
 function adicionar() {
     let pergunta = prompt('Digite a tarefa a ser adicionada:')
     arrayTask.push(pergunta)
-    document.getElementById('list').innerHTML = arrayTask;
- }
+    document.getElementById('list').innerHTML = arrayTask.map(item=>`<li>${item}</li>`).join(``);
+    }
 
 function buscar() {
 
@@ -36,9 +36,9 @@ function buscar() {
         return p == pergunta
     })
     if (arrayBusca == pergunta) {
-        console.log(`O item: ${arrayBusca} esta na lista`)
+        prompt(`O item: ${arrayBusca} esta na lista`)
     } else {
-        console.log('não encontrei o item buscado, tente novamente')
+        prompt('não encontrei o item buscado, tente novamente')
     }
 }
 
@@ -49,8 +49,9 @@ function alterar() {
 
     let index = arrayTask.indexOf(pergunta);
     arrayTask.splice(index, 1, pergunta1)
-    console.log(`Tarefa add: ${arrayTask}`)
-    document.getElementById('list').innerHTML = arrayTask;
+    prompt(`Tarefa add: ${arrayTask}`)
+    document.getElementById('list').innerHTML = arrayTask.map(item=>`<li>${item}</li>`).join(``);
+//falta restrição para a tarefa. Caso seja uma tarefa não encontrada ele vai para substituirr a última
 }
 
 function deletar() {
@@ -59,7 +60,7 @@ function deletar() {
         return e != pergunta
     })
     arrayTask = newList
-    console.log(`Tarefa add: ${arrayTask}`)
-    document.getElementById('list').innerHTML = arrayTask;
+    prompt(`Tarefa add: ${arrayTask}`)
+    document.getElementById('list').innerHTML = arrayTask.map(item=>`<li>${item}</li>`).join(``);
 }
 document.getElementById('list').InnerHTML = "olá meu amigo";

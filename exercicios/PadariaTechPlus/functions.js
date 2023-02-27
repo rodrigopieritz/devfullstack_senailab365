@@ -20,6 +20,6 @@ function itemRegister() {
    money = parseFloat (prompt("Digite o valor total de dinehiro entregue, para que seja feito o cálculo do troco"));
    change = money - totalValue;
    alert( "seu troco é de R$ " + change);
-   //substituir vírgula por ., prompt ( "Digite seu número" ).replace ( ",", ".") )
+   //pode melhorar com a substituição de vírgula por ., prompt ( "Digite seu número" ).replace ( ",", ".") )
   }
 }
