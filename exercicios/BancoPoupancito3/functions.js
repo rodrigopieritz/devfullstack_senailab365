@@ -21,7 +21,6 @@ class Conta {
       let novoSaldo = parseFloat(valorDepositado) + conta.saldo;
       conta.saldo = novoSaldo;
       alert(`Seu saldo em conta é de R$${conta.saldo}`);
-      console.log(conta.saldo);
     } else {
       alert("Senha incorreta");
     }
@@ -33,7 +32,6 @@ class Conta {
       let novoSaldo = conta.saldo - parseFloat(valorRetirada);
       conta.saldo = novoSaldo;
       alert(`Seu saldo em conta é de R$${conta.saldo}`);
-      console.log(conta.saldo);
     } else {
       alert("Senha incorreta");
     }
@@ -42,8 +40,7 @@ class Conta {
     let password = prompt("Digite a senha");
     if (password == senhaAutorizada) {
       alert(`Seu saldo em conta é de R$${conta.saldo}`);
-      console.log(conta.saldo);
-    } else {
+      } else {
       alert("Senha incorreta");
     }
  
@@ -57,29 +54,24 @@ constructor(saldo,senha,juros){
     this.juros = juros;
 }
 atualizarJuros(){
-    let novoSaldo = poupanca.saldo * (1+this.juros);
-    poupanca.saldo = novoSaldo;
-   alert(`Seu saldo em conta é de R$${poupanca.saldo}`);
-   console.log(poupanca.saldo);
+    let novoSaldo = conta.saldo * poupanca.juros;
+    conta.saldo = novoSaldo;
+   alert(`Seu saldo em conta é de R$${conta.saldo}`);
 }
 }
 
-var poupanca = new Poupanca(0,0,0.007);
-
-
- /*
- aumentando o a taxa para 1.2% toda a 
- vez que o método for chamado.
-
+var poupanca = new Poupanca(0,0,1.007);
 
 class PoupancaPremium extends Poupanca {
-    constructor(saldo, senha, juros){
-        super(saldo, senha, juros);
-}
+constructor(saldo,senha,juros){
+    super(saldo, senha,juros);
+   }
 atualizarJuros(){
-    let novoSaldo = poupanca.saldo * (1+this.juros);
-    this.saldo = novoSaldo;
-    alert(`Seu saldo em conta é de R$${poupanca.saldo}`);
+  poupancaPremium.juros += 0.012;
+    let novoSaldo = conta.saldo * poupancaPremium.juros;
+    conta.saldo = novoSaldo;
+   alert(`Seu saldo em conta é de R$${conta.saldo}`);
 }
 }
-*/
+
+var poupancaPremium = new PoupancaPremium(0,0,1);
