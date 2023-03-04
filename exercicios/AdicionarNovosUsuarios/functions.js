@@ -4,11 +4,11 @@ let listaAdd = [];
 function adicionar(listaAdd) {
   let tempList = [];
   if (listaAdd.length < 1) {
-    console.log("insira um ou mais valores");
+    console.log("insira um ou mais nomes");
   } else {
     for (let i = 0; i < listaAdd.length; i++) {
       if (lista.indexOf(listaAdd[i]) > -1) {
-        console.log("Erro! Não podem ser inseridos valores repetidos");
+        console.log("Erro! Não podem ser inseridos nomes repetidos");
         break;
       } else if (typeof listaAdd[i] != "string") {
         console.log("Erro! Só podem ser enviados nomes do tipo texto");
