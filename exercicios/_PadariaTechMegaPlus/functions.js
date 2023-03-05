@@ -1,60 +1,81 @@
+var totalConta = 0;
+var troco = 0;
+let total;
+
 class CaixaRegistradora {
-  
-  constructor(name, barCode, price) {
-    this.name = name;
-    this.barCode = barCode;
-    this.price = price;
+  estoque = [{}];
+
+  constructor(codigoBarra, preco, nome) {
+    this.estoque["codigoBarra"] = codigoBarra;
+    this.estoque["preco"] = preco;
+    this.estoque["nome"] = nome;
   }
-  cadastrarItem() {
-    let addName = prompt("Digite o nome do produto que deseja cadastrar");
-    let addBarCode = prompt("Digite o código do produto que deseja cadastrar");
-    let addPrice = prompt("Digite o preço do produto que deseja cadastrar");
-    if (!addName || !addBarCode || !addPrice) {
-      alert("todos os valores são obrigatórios. Inicie novamente o cadastro");
-    } else {
-      tabelaItens.push(new CaixaRegistradora(addName, addBarCode, addPrice));
-      console.log(tabelaItens);
+  adicionarProdutos(codigoBarra, preco, nome) {
+    if (codigoBarra && preco && nome) {
+      this.estoque.push({
+        codigoBarra,
+        preco,
+        nome,
+        });
     }
   }
-}
-var itensCadastrados = new CaixaRegistradora("Item Padrão", "000000", 0);
-let tabelaItens =[];
-tabelaItens.push(new CaixaRegistradora("Pão Francês", "1", .25));
-tabelaItens.push(new CaixaRegistradora("Pão de Queijo", "2", 1.25));
-console.log(tabelaItens)
-
-/*
-
-class CashRegister {
-  constructor() {}
-  openRegister() {
-    let costumerName = prompt("Informe o nome do cliente");
-    this.readBarCode();
-    //  console.log (costumerName);
+  iniciarAtendimento(cliente) {
+    this.cliente = cliente;
   }
-  readBarCode() {
-    console.log("ler código de barra");
-    console.log(costumerName);
-    //buscar item e verificar se existe
-    //chamar função para informar a quantidade do item
+  passarCompra(codigoBarra, quantidade) {
+    this.estoque.filter((e) => {
+      if (e.codigoBarra == codigoBarra) {
+        totalConta += e.preco * quantidade;
+        }
+    });
+    return totalConta;
   }
-  // itemQuantity () {
-  // deverá ser inserida a quantidade do item
-  //chamar method bill
-  // }
+  verificarTotal() {
+    return totalConta;
+  }
+  fecharConta(dinheiro) {
+    troco = dinheiro - totalConta;
+    totalConta = 0;
+    this.cliente = "";
+    console.log("seu troco éR$" + troco);
+  }
+  removeProduct(codigoBarra, quantidade) {
+    this.estoque.find((e) => {
+      if (e.codigoBarra === codigoBarra && e.quantidade >= quantidade) {
+        e.quantidade -= quantidade;
+        localStorage.setItem("estoque", this.estoque);
+      }
+    });
+  }
 }
 
-var cashRegister = new CashRegister();
-/*
+let run = new CaixaRegistradora(0, 0, 0, 0);
+run.estoque.shift();
 
+//Teste Adicionar Produtos
+run.adicionarProdutos(1, 0.25, "pão francês");
+run.adicionarProdutos(2, 1.15, "pão de queijo");
+run.adicionarProdutos(3, 7.15, "pão de forma");
+console.log("Lista de itens em estoque abaixo", run.estoque);
 
+//Teste iniciar atendimento
+run.iniciarAtendimento("Jeremias");
+console.log(`o atributo cliente é ${run.cliente}`);
 
-Defina um método que receba codigoBarra: number; e quantidade: number; para o seu Manoel conseguir adicionar itens na caixa registradora. **Importante: A aplicação só poderá adicionar itens na caixa, se o código de barra dele existir.
+//Teste passar compra
+console.log(
+  `antes de passar o produto a conta do cliente é R$ ${totalConta}`
+);
+run.passarCompra(1, 10);
+console.log(
+  `após passar 10 pães franceses o total da conta é R$ ${totalConta}`
+);
 
-vai no itens do estoque, ve o preço e adiciona nos itens conta
+//Testar verifiar total
+console.log(`o valor total da conta é R$ ${run.verificarTotal()}`);
 
-Defina um método que você consiga verificar o valor total da conta do cliente.
-Defina um método fecharConta, no qual você passa o dinheiro e ele calcula o troco e zera a caixa registradora.
-
-limpa a caixa egistradora
-*/
+//Testar fechar conta
+console.log(`antes de fechar a conta do ${run.cliente} é R$${totalConta}`);
+let dinheiro = 20;
+run.fecharConta(dinheiro);
+console.log(`após executar o fehcar a conta, foi recebido um valor de R$ ${dinheiro}, o troco calculado foi de R$${troco} e os valores atualizados de cliente e total da conta são Valor (${run.cliente}) e R$ valor(${totalConta})`);
