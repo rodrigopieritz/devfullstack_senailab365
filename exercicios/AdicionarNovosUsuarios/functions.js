@@ -10,6 +10,8 @@ function adicionar(listaAdd) {
       if (lista.indexOf(listaAdd[i]) > -1) {
         console.log("Erro! Não podem ser inseridos nomes repetidos");
         break;
+
+    // poderia ter sido feito com include
       } else if (typeof listaAdd[i] != "string") {
         console.log("Erro! Só podem ser enviados nomes do tipo texto");
         break;
@@ -19,14 +21,17 @@ function adicionar(listaAdd) {
     }
   }
   if (tempList.length == listaAdd.length) {
-    tempList.map((elemento) => {
+   /* tempList.map((elemento) => {
       lista.push(elemento);
-    });
-    console.log(lista);
+          });
+          Abaixo meneira mais simples dazer com o concat
+    */
+    const novaLista = lista.concat(tempList);
+    console.log(novaLista);
   } else {
     console.log("Arrume a lista e tente novamente");
   }
 }
 
-let listaEnviada = ["Carlos", "Danilo","Luiz"];
+let listaEnviada = ["Carlos", "Murilo","Luiz"];
 adicionar(listaEnviada);
