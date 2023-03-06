@@ -39,16 +39,7 @@ class CaixaRegistradora {
     this.cliente = "";
     console.log("seu troco éR$" + troco);
   }
-  removeProduct(codigoBarra, quantidade) {
-    this.estoque.find((e) => {
-      if (e.codigoBarra === codigoBarra && e.quantidade >= quantidade) {
-        e.quantidade -= quantidade;
-        localStorage.setItem("estoque", this.estoque);
-      }
-    });
-  }
 }
-
 let run = new CaixaRegistradora(0, 0, 0, 0);
 run.estoque.shift();
 
