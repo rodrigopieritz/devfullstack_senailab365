@@ -13,6 +13,15 @@ app.get('/enviar/:nome', (request, response) => {
   console.log(`Console - Rota de API criada pelo: ${nome}`);
 });
 
+//exercício 5
+
+app.post('/enviarObjeto', (request, response) => {
+  let object = request.body;
+  response.json(object);
+  console.log(`Enviado com sucesso ${JSON.stringify(object)}`);
+});
+
+
 app.listen(3333, () => {
   console.log("servidor está funcionando!");
 });
