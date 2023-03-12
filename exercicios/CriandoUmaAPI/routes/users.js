@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 //post ex 6
 /*
@@ -11,12 +11,26 @@ router.delete('/:id', (req, res) => {
 });
 */
 
-// post ex 7
+// exercicio  7
 
-const controller = require('./controller');
+const controller = require("./controller");
 // Acessar arquivo controller.js
 
-router.post('/novoUsuario',controller.adicionarUsuario);
-router.delete('/deletarUsuario/:id', controller.deletarUsuario);
+//exercicio 8
+
+function middlewareCargo(req, res, next) {
+  const validacaoUsuario = req.body;
+  if (validacaoUsuario.cargo !== "líder") {
+    return res
+      .status(400)
+      .json({ menssage: "Usuário não possui cargo suficiente" });
+  }
+  next();
+}
+
+// continuação exercicio 7
+
+router.post("/novoUsuario", middlewareCargo, controller.adicionarUsuario);
+router.delete("/deletarUsuario/:id", controller.deletarUsuario);
 
 module.exports = router;
