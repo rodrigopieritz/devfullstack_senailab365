@@ -1,32 +1,31 @@
-const {Sequelize} = require('sequelize')
+const Sequelize = require('sequelize')
 const connection = require("../database");
 
-const Place = connection.define('place',{
-    id:{
+const Place = connection.define('place', {
+    id: {
         type: Sequelize.INTEGER,
-        autoIncrement:true,
-        allowNull:false,
+        autoIncrement: true,
         primaryKey: true
     },
-    name:{
+    name: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
     },
-    contact:{
+    contact: {
         type: Sequelize.STRING
     },
-    opening_hours:{
+    opening_hours: {
         type: Sequelize.STRING
     },
-    description:{
-        type: Sequelize.STRING
+    description: {
+        type: Sequelize.STRING 
     },
-    latitude:{
-        type: Sequelize.DECIMAL
+    latitude: {
+        type: Sequelize.DECIMAL,
     },
-    longitude:{
-        type: Sequelize.DECIMAL
+    longitude: {
+        type: Sequelize.DECIMAL,
     }
 })
 
-module.export = Place
+module.exports = Place
