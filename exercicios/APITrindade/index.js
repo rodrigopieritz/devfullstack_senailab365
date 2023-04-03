@@ -32,6 +32,15 @@ app.post('/places', async (request, response) => {
     }
 })
 
+app.get('/places', async (request, response) => {
+    try {
+        const places = await Place.findAll()
+        return response.json(places)
+    } catch (error) {
+        
+    }
+})
+
 app.listen(3333,()=>{
     console.log("servidor rodando na porta 3333")
 })
