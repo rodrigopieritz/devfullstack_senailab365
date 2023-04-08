@@ -2,6 +2,7 @@ const express = require("express");
 const connection = require("./src/database");
 const Place = require("./src/models/place");
 const User = require("./src/models/user");
+const { Op } = require("sequelize");
 
 const app = express();
 
@@ -9,6 +10,8 @@ app.use(express.json());
 
 connection.authenticate();
 connection.sync({ alter: true });
+
+//PLACES
 
 app.post("/places", async (request, response) => {
   try {
@@ -77,9 +80,50 @@ app.put("/places/:id", async (request, response) => {
     console.log(error);
     response
       .status(500)
-      .json({ message: "Não foi possivel concluir a operação, verificar log"});
+      .json({ message: "Não foi possivel concluir a operação, verificar log" });
   }
 });
+
+//USERS
+
+app.post("/users", async (request, response) => {
+  try {
+    const userInDatabase = await User.findOne({
+      where: {
+        [Op.or]: [
+          { email: request.body.email },
+          { username: request.body.username },
+        ],
+      },
+    });
+    if (userInDatabase) {
+      return response
+        .status(409)
+        .json({ message: "Erro: E-mail e/ou Username já possuem uma conta" });
+    }
+    const checkPassword = { password: request.body.password };
+    if (checkPassword.password.length < 8) {
+      return response
+        .status(409)
+        .json({ message: "A senha deve possuir mais do que 8 dígitos" });
+    }
+    const newUser = {
+      name: request.body.name,
+      email: request.body.email,
+      username: request.body.username,
+      password: request.body.password,
+    };
+    const { username } = await User.create(newUser);
+    response.status(201).json({ username });
+  } catch (error) {
+    console.log(error);
+    response
+      .status(500)
+      .json({ message: "Erro: Não conseguimos processar sua solicitação." });
+  }
+});
+
+//CONECÇÃO AO SERVIDOR
 
 app.listen(3333, () => {
   console.log("Servidor rodando na porta 3333");
