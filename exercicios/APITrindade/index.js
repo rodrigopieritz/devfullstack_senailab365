@@ -4,9 +4,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
 
+
 const connection = require("./src/database");
 const Place = require("./src/models/place");
 const User = require("./src/models/user");
+
+const validateToken = require("./src/middlewares/validate-token");
 
 const app = express();
 app.use(express.json());
@@ -16,7 +19,7 @@ connection.sync({ alter: true });
 
 //CADASTRAR LOCAIS (PLACES)
 
-app.post("/places", async (request, response) => {
+app.post("/places",validateToken, async (request, response) => {
   try {
     const data = {
       name: request.body.name,
@@ -40,7 +43,7 @@ app.post("/places", async (request, response) => {
 
 //EXIBIR LOCAIS (PLACES)
 
-app.get("/places", async (request, response) => {
+app.get("/places",validateToken, async (request, response) => {
   try {
     const places = await Place.findAll();
     return response.json(places);
@@ -49,7 +52,7 @@ app.get("/places", async (request, response) => {
 
 //DELETAR LOCAIS (PLACES)
 
-app.delete("/places/:id", async (request, response) => {
+app.delete("/places/:id",validateToken, async (request, response) => {
   try {
     await Place.destroy({
       where: {
@@ -67,7 +70,7 @@ app.delete("/places/:id", async (request, response) => {
 
 //ATUALIZAR LOCAIS (PLACES)
 
-app.put("/places/:id", async (request, response) => {
+app.put("/places/:id",validateToken, async (request, response) => {
   try {
     const placeIndDatabase = await Place.findByPk(request.params.id);
 
@@ -95,7 +98,7 @@ app.put("/places/:id", async (request, response) => {
 
 //CADASTRO DE USUÁRIOS
 
-app.post("/users", async (request, response) => {
+app.post("/users",validateToken, async (request, response) => {
   try {
     const userInDatabase = await User.findOne({
       where: {
@@ -178,5 +181,5 @@ app.post("/sessions", async (request, response) => {
 //CONECÇÃO AO SERVIDOR
 
 app.listen(3333, () => {
-  console.log("Servidor rodando na porta 3333");
+  console.log("Servidor rodando");
 });
