@@ -1,0 +1,94 @@
+@import "./variables.css";
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vmin;
+  width: 100vmin;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--white);
+  height: fit-content;
+  padding: 20px;
+}
+h2 {
+  color: var(--prima-text);
+  padding: 10px;
+}
+h4 {
+  color: var(--secon-text);
+  font-size: 0.8rem;
+  padding: 10px;
+  font-weight: 400;
+}
+h5 {
+  font-size: 0.8rem !important;
+  padding: 0.5rem 1rem 0 0.5rem;
+}
+
+input {
+  padding: 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+}
+
+input:hover {
+  border: 1px solid var(--secon-text);
+}
+input:focus {
+  outline: none;
+  border: 1px solid var(--secon-text);
+}
+
+.placeholder-text::placeholder {
+  color: var(--input);
+  font-size: 13px;
+}
+
+button {
+  background-color: var(--green);
+  color: var(--bckg);
+  height: 50px;
+  width: 300px;
+  padding: 0px;
+  border-radius: 8px !important;
+  border: none;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: var(--green);
+  box-shadow: 0 0 5px #666;
+  transform: translateY(4px);
+}
+
+#subtitle {
+  font-size: 0.9rem;
+}
+
+#formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#link {
+  color: var(--green);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
