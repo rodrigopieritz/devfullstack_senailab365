@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: var(--bckg);
   height: 100vmin;
   width: 100vmin;
 }
