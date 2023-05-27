@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+  </head>
+  <link rel="stylesheet" href="./assets/styles/styleCadastro.css" />
+  <body>
+    <div class="mainContainer">
+      <div class="headerTextContainer">
+        <h1>CADASTRO</h1>
+        <p>Insira os dados para criar uma conta.</p>
+      </div>
+      <form class="cadastrarForm">
+        <fieldset>
+          <label for="empresa"></label>
+          <input
+            type="text"
+            name="empresa"
+            id="empresa"
+            placeholder="Empresa"
+          />
+          <label for="cnpj"></label>
+          <input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" />
+          <label for="responsavel"></label>
+          <input
+            type="text"
+            name="responsavel"
+            id="responsavel"
+            placeholder="Responsavel"
+          />
+          <label for="email"></label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Informe seu e-mail"
+          />
+          <label for="telefone"></label>
+          <input
+            type="number"
+            name="telefone"
+            id="telefone"
+            placeholder="Telefone"
+          />
+          <label for="senha"></label>
+          <input
+            type="password"
+            name="senha"
+            id="senha"
+            placeholder="Informe sua senha"
+          />
+          <label for="confirmaSenha"></label>
+          <input
+            type="password"
+            name="confirmaSenha"
+            id="confirmaSenha"
+            placeholder="Confirmar senha"
+          />
+        </fieldset>
+        <button
+          id="button"
+          class="btn-active"
+          type="submit"
+          a
+          href="./login.html"
+        >
+          Cadastrar
+        </button>
+      </form>
+      <div class="footer">
+        <p>Já possui conta? <a href="./login.html">Realizar login.</a></p>
+      </div>
+    </div>
+    <script src="./assets/scripts/functionsCadastro.js"></script>
+  </body>
+</html>
