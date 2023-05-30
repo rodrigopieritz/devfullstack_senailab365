@@ -3,8 +3,8 @@
   }
   
   .footer {
-    display: grid;
-    grid-template-columns: 3fr 5fr 4fr;
+    /*display: grid;
+    grid-template-columns: 3fr 5fr 4fr;*/
     gap: 40px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -18,9 +18,12 @@
     margin-bottom: 32px;
   }
   
+  .imagem {
+    margin-bottom: 32px;
+  }
   .footer-contato li:nth-child(even):after {
     content: "";
-    display: block;
+   /* display: block;*/
     max-width: 360px;
     height: 2px;
     background: var(--cor-11);
@@ -34,6 +37,7 @@
   .footer-redes {
     display: flex;
     gap: 32px;
+    margin-bottom: 32px;
   }
   
   .footer a:hover {
@@ -41,7 +45,7 @@
   }
   
   .footer-copy {
-    grid-column: 1/-1;
+   /* grid-column: 1/-1;*/
     margin-top: 40px;
   }
   
@@ -63,3 +67,4 @@
       margin-top: 0px;
     }
   }
+  
