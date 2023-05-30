@@ -9,31 +9,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-
-<body>
-    <div class="container">
-        <header>
-            <img src="https://www.origamid.com/projetos/bikcraft/img/bikcraft.svg">
-            <ul>
-                <li><a href="#">Bicicletas</a></li>
-                <li><a href="#">Seguros</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </header>
-
-        <div class="content">
-            <div class="col-6 p-t-120">
-                <h1>Bicicletas feitas sob medida<span class="text-yellow">.</span></h1>
-                <h6 class="text-muted">Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para você.
-                    Explore o mundo na sua velocidade com a Bikcraft.</h6>
-                <button class="btn-active">Escolha a sua</button>
-            </div>
-            <div class="col-6">
-                <img class="img-banner" src="https://www.origamid.com/projetos/bikcraft/img/fotos/introducao.jpg">
-            </div>
-        </div>
-
+<body id="bicicletas">
+    <header class="header-bg">
+      <div class="header container">
+        <a href="./bikcraft.html">
+          <img src="https://www.origamid.com/projetos/bikcraft/img/bikcraft.svg" alt="Bikcraft">
+        </a>
+  
+        <nav aria-label="primaria">
+          <ul class="header-menu font-1-m cor-0">
+            <li><a href="./bicicletas.html">Bicicletas</a></li>
+            <li><a href="#">Seguros</a></li>
+            <li><a href="./contact.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="introducao-bg">
+    <div class="introducao container">
+      <div class="introducao-conteudo">
+        <h1 class="font-1-xxl cor-0">Bicicletas feitas sob medida<span class="cor-p1">.</span></h1>
+        <p class="font-2-l cor-5">Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para você. Explore o mundo na sua velocidade com a Bikcraft.</p>
+        <a class="botao" href="#">Escolha a sua</a>
+      </div>
+      <picture>
+        <source media="(max-width: 800px)" srcset="./img/bicicletas/nimbus.jpg">
+        <img src="https://www.origamid.com/projetos/bikcraft/img/bicicletas/nimbus.jpg" width="1280" height="1600" alt="Bicicleta elétrica preta.">
+      </picture>
     </div>
-</body>
+  </main>
+  
+  
+
+
+<footer class="footer-bg">
+<div class="footer container">
+<img src="https://www.origamid.com/projetos/bikcraft/img/bikcraft.svg" alt="Bikcraft">
+<div class="footer-contato">
+<h3 class="font-2-l-b cor-0">Contato</h3>
+<ul class="font-2-m cor-5">
+  <li><a href="tel:+552199999999">+55 21 9999-9999</a></li>
+  <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
+  <li>Rua Ali Perto, 42 - Botafogo</li>
+  <li>Rio de Janeiro - RJ</li>
+</ul>
+<div class="footer-redes">
+  <a href="#">
+    <img src="https://www.origamid.com/projetos/bikcraft/img/redes/instagram.svg" alt="Instagram">
+  </a>
+  <a href="#">
+    <img src="https://www.origamid.com/projetos/bikcraft/img/redes/facebook.svg" alt="Facebook">
+  </a>
+  <a href="#">
+    <img src="https://www.origamid.com/projetos/bikcraft/img/redes/youtube.svg" alt="Youtube">
+  </a>
+</div>
+</div>
+<div class="footer-informacoes">
+<h3 class="font-2-l-b cor-0">Informações</h3>
+<nav>
+  <ul class="font-1-m cor-5">
+    <li><a href="./bicicletas.html">Bicicletas</a></li>
+    <li><a href="#">Seguros</a></li>
+    <li><a href="./contact.html">Contato</a></li>
+    <li><a href="#">Termos e Condições</a></li>
+  </ul>
+</nav>
+</div>
+<p class="footer-copy font-2-m cor-6">Bikcraft © Alguns direitos reservados.</p>
+</div>
+</footer>
+  </body>
+
 
 </html>
