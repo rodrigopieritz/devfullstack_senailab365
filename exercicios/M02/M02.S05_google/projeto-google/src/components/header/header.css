@@ -1,0 +1,35 @@
+/* COLORS */
+.bg-blue {
+    background-color: white;
+    color:black;
+}
+
+.white {
+    color: #f6f6f6;
+}
+
+
+div.flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    padding: 5px;
+    border: none;
+}
+
+/* BUTTONS */
+.flex img {
+    border-radius: 50px;
+}
+
+.flex button {
+    background-color: white;
+    
+}
+
+.flex button:hover {
+    cursor: pointer;
+    scale: 0.95;
+    
+}
