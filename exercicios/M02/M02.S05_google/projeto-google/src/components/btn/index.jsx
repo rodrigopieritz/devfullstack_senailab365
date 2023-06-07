@@ -1,10 +1,10 @@
 import React from 'react'
 import './btn.css'
 
-export default function Btn() {
+export default function Btn(props) {
   return (
     <div>
-      <button>Pesquisar</button>
+      <button>{props.txt2}</button>
     </div>
   )
 }

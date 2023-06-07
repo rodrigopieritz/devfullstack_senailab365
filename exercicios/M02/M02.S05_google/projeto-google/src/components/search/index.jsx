@@ -1,10 +1,10 @@
 import React from 'react'
 import './search.css'
 
-export default function Search() {
+export default function Search(props) {
   return (
     <div className='search'>
-      <input type="text" name="search" id="" placeholder='O que você procura?' />
+      <input type="text" name="search" id="" placeholder={props.txt2}/>
       </div>
   )
 }

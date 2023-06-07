@@ -8,11 +8,12 @@ import Btn from './components/btn';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header txt="Nome" txt2="Name"/>
       <body className="App-body">
       <img className='logo' src={googleLogo} alt="imagem do logo do google" />
       <Search/>
-      <Btn/>
+      <Btn txt="Pesquisa Google" txt2="Google Search"/>
+      <Btn txt="Estou com sorte" txt2="I'm Lucky"/>
     
         </body>
     </div>

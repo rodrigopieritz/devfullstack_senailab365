@@ -3,10 +3,11 @@ import './header.css'
 import Profile from '../profile/profile'
 
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className='bg-blue flex'>
-      <Profile/>
+      <h1> {props.txt2}
+        </h1><Profile/>
     </div>
   )
 }
