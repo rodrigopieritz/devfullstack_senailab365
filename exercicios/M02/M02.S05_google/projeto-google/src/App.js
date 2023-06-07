@@ -8,7 +8,7 @@ import Btn from './components/btn';
 function App() {
   return (
     <div className="App">
-      <Header txt="Nome" txt2="Name"/>
+      <Header txt="Olá!" txt2="Hi!"/>
       <body className="App-body">
       <img className='logo' src={googleLogo} alt="imagem do logo do google" />
       <Search/>

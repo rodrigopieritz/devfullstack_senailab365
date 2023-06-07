@@ -13,7 +13,7 @@ div.flex {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 5px;
+    gap: 20px;
     padding: 5px;
     border: none;
 }
@@ -34,5 +34,5 @@ div.flex {
     
 }
 
-h1{   font-size: 35px;
+h1{   font-size: 25px;
     color: green}
