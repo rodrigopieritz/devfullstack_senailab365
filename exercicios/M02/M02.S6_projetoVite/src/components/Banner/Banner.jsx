@@ -5,7 +5,7 @@ import "./Banner.css"
 
 function Banner(props) {
     return ( 
-        <div class="container-fluid bg-dark border-bottom border-bottom-dark"> 
+        <div class="container-fluid bg-dark"> 
             <div class="banner-text-main">{props.texto1}</div>
         <div class= "banner-text-secondary">{props.texto2}</div>
          </div>

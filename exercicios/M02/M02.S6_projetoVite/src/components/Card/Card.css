@@ -1,0 +1,16 @@
+.item{
+    color: whitesmoke;
+    font-size: 8px;
+    font-family: "Poppins";
+    font-style: normal;
+    text-align: left;
+    line-height: 25px;
+}
+.image{
+    background-color: grey !important;
+    font-size: 8px;
+    font-family: "Poppins";
+    font-style: normal;
+    text-align: left;
+    line-height: 25px;
+}
