@@ -4,7 +4,7 @@ const Header =() => {
     return(
         <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
   <div class="container-fluid">
-   <div> <a class="company-logo" href="#">Minha Empresa S.A.</a></div>
+   <div> <div class="company-logo" href="#">Minha Empresa S.A.</div></div>
     <div class="navbar-">
       <ul class="navbar-nav">
         <li class="nav-item">

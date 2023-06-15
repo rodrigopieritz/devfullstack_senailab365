@@ -1,0 +1,15 @@
+.container-fluid{
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: "Poppins";
+    font-style: normal;
+    text-align: left;
+}
+
+.company-logo{
+    font-size: 40px;
+    font-family: "Poppins";
+    font-style: normal;
+    color:white;
+    margin-top: 15px;
+}

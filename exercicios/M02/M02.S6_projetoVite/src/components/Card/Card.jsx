@@ -4,12 +4,12 @@ import "./Card.css";
 
 function Card(props) {
   return (
-    <div class="container-fluid bg-dark">
+    <div class="container-fluid bg-light text-dark">
       <div class="row">
         <div class="image col-6">
             <img src={props.image} class="productImage"></img>
         </div>
-        <div class="item col-6 bg-dark">
+        <div class="item col-6 bg-light text-dark mt-1">
           <ul>
             <li>Nome: {props.nome}</li>
             <li>Valor: {props.valor}</li>
