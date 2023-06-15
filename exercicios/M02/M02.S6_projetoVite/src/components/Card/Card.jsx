@@ -6,8 +6,10 @@ function Card(props) {
   return (
     <div class="container-fluid bg-dark">
       <div class="row">
-        <div class="image col-8 bg-dark"></div>
-        <div class="item col-4 bg-dark">
+        <div class="image col-6">
+            <img src={props.image} class="productImage"></img>
+        </div>
+        <div class="item col-6 bg-dark">
           <ul>
             <li>Nome: {props.nome}</li>
             <li>Valor: {props.valor}</li>
