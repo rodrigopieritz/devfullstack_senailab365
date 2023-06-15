@@ -1,0 +1,16 @@
+.banner-text-main {
+  color: whitesmoke;
+  font-size: 14px;
+  text-align: left;
+  line-height: 60px;
+}
+
+.banner-text-secondary {
+  color: white;
+  font-size: 12px;
+  text-align: left;
+  height: 45px;
+  font-family: "Poppins";
+  font-style: normal;
+  line-height: 15px;
+}
