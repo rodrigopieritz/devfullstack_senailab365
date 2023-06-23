@@ -1,17 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Card({ data }) {
+  const [likes, setLikes] = useState(Array(data.length).fill(0));
+  const [editedData, setEditedData] = useState([...data]);
+
+  const handleLike = (index) => {
+    const updatedLikes = [...likes];
+    updatedLikes[index] += 1;
+    setLikes(updatedLikes);
+  };
+
+  const handleEdit = (index) => {
+    const field = prompt("Qual dado você deseja editar? (nickname, idade, email ou senha)");
+    if (!field || !["nickname", "idade", "email", "senha"].includes(field.toLowerCase())) {
+      // O usuário cancelou ou inseriu um campo inválido
+      return;
+    }
+
+    const value = prompt(`Digite o novo valor para ${field}:`);
+    if (!value) {
+      // O usuário cancelou a edição
+      return;
+    }
+
+    const updatedData = [...editedData];
+    updatedData[index][field] = value;
+
+    // Atualiza os dados do usuário com a edição
+    setEditedData(updatedData);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">Usuários Cadastrados</h5>
+        <h5 className="card-title">Dados Cadastrados</h5>
         <ul className="list-group">
-          {data.map((item, index) => (
+          {editedData.map((item, index) => (
             <li className="list-group-item" key={index}>
-              <strong>Nickname:</strong> {item.nickname}<br />
-              <strong>Idade:</strong> {item.idade}<br />
-              <strong>Email:</strong> {item.email}<br />
-              <strong>Senha:</strong> {item.senha}
+              <div className="d-flex justify-content-between">
+                <div>
+                  <strong>Nickname:</strong> {item.nickname}<br />
+                  <strong>Idade:</strong> {item.idade}<br />
+                  <strong>Email:</strong> {item.email}<br />
+                  <strong>Senha:</strong> {item.senha}<br />
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => handleLike(index)}
+                  >
+                    Like
+                  </button>
+                  <span className="badge bg-secondary">{likes[index]}</span>
+                  <button
+                    type="button"
+                    className="btn btn-link edit-button"
+                    onClick={() => handleEdit(index)}
+                  >
+                    Editar
+                  </button>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
