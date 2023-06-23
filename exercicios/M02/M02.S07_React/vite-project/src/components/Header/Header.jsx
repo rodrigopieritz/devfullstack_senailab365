@@ -14,7 +14,7 @@ function Header() {
     }
         
     return (  
-        <div className="p-3 mb-2 bg-warning">
+        <div className="p-3 mb-2 bg-light">
 
            <nav className="navbar navbar-light bg-light text-center rounded">
                <a className="navbar-brand" href="#" onClick={mudarNome}>
