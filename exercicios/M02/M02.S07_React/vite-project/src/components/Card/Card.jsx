@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Search from "../Search/Search";
 
 function Card({ data }) {
   const [likes, setLikes] = useState(Array(data.length).fill(0));
@@ -13,24 +14,25 @@ function Card({ data }) {
   const handleEdit = (index) => {
     const field = prompt("Qual dado você deseja editar? (nickname, idade, email ou senha)");
     if (!field || !["nickname", "idade", "email", "senha"].includes(field.toLowerCase())) {
-      // O usuário cancelou ou inseriu um campo inválido
+     
       return;
     }
 
     const value = prompt(`Digite o novo valor para ${field}:`);
     if (!value) {
-      // O usuário cancelou a edição
+      
       return;
     }
 
     const updatedData = [...editedData];
     updatedData[index][field] = value;
 
-    // Atualiza os dados do usuário com a edição
+    
     setEditedData(updatedData);
   };
 
   return (
+    <>
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">Dados Cadastrados</h5>
@@ -67,6 +69,8 @@ function Card({ data }) {
         </ul>
       </div>
     </div>
+    <Search data={data}/>
+    </>
   );
 }
 
