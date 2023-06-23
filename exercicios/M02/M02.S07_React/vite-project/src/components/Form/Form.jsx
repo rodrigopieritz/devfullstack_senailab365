@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "../Card/Card"
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ function Form() {
     email: "",
     senha: "",
   });
+
   const [submittedData, setSubmittedData] = useState([]);
 
   function userData(e) {
@@ -114,6 +116,7 @@ function Form() {
           </div>
         </div>
       </form>
+      <Card data={submittedData} />
     </>
   );
 }
