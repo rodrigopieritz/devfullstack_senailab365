@@ -1,12 +1,3 @@
-/*
-const Form =() => {
-    return(
-            <>Form is Render</>
-    )
-}
-
-export default Form;*/
-
 import React, { useState } from 'react';
 
 const Form = () => {
@@ -14,6 +5,16 @@ const Form = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const validateForm = () => {
+    const isNameValid = name.trim() !== '';
+    const isPhoneValid = phone.trim() !== '';
+    const isEmailValid = email.includes("@") && email.includes(".com");
+    const isMessageValid = message.trim() !== '';
+
+    setIsFormValid(isNameValid && isPhoneValid && isEmailValid && isMessageValid);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +26,7 @@ const Form = () => {
     setPhone('');
     setEmail('');
     setMessage('');
+    setIsFormValid(false);
   };
 
   return (
@@ -41,7 +43,10 @@ const Form = () => {
             className="form-control"
             id="name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              validateForm();
+            }}
           />
         </div>
 
@@ -54,7 +59,10 @@ const Form = () => {
             className="form-control"
             id="phone"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              validateForm();
+            }}
           />
         </div>
       </div>
@@ -68,7 +76,10 @@ const Form = () => {
           className="form-control"
           id="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateForm();
+          }}
         />
       </div>
 
@@ -79,13 +90,16 @@ const Form = () => {
         <textarea
           className="form-control"
           id="message"
-          rows="10" // Definindo o número de linhas para 5
+          rows="10"
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => {
+            setMessage(e.target.value);
+            validateForm();
+          }}
         />
       </div>
 
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" disabled={!isFormValid} onClick={handleSubmit}>
         Enviar
       </button>
     </form>
@@ -93,4 +107,3 @@ const Form = () => {
 };
 
 export default Form;
-
