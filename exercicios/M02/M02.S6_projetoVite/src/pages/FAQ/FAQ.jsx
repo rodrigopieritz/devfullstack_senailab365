@@ -1,7 +1,12 @@
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+
 export const Faq = () => {
     return (
       <>
-FAQ is rendering
+      <Header />
+      FAQ in Render
+      <Footer/>
       </>
     );
   };
