@@ -1,13 +1,35 @@
+import React, { useContext } from "react";
+import "./Banner.css";
+import { BannerContext } from "../../context/BannerContext/BannerContext";
+
+const Banner = () => {
+  const { title, subtitle } = useContext(BannerContext);
+
+  return (
+    <div className="container-fluid bg-dark">
+      <div className="banner-text-main">{title}</div>
+      <div className="banner-text-secondary">{subtitle}</div>
+    </div>
+  );
+};
+
+export default Banner;
+
+
+
+/*
+
 import React from "react";
-import PropTypes from "prop-types";
 import "./Banner.css"
+import { BannerContext } from "../../BannerContext/BannerContext";
 
 
-function Banner(props) {
+const Banner= () => {
+    const {title, subtitle} = useContext (BannerContext);
     return ( 
         <div class="container-fluid bg-dark"> 
-            <div class="banner-text-main">{props.texto1}</div>
-        <div class= "banner-text-secondary">{props.texto2}</div>
+            <div class="banner-text-main">{title}</div>
+        <div class= "banner-text-secondary">{subtitle}</div>
          </div>
      );
 }
@@ -18,3 +40,5 @@ Banner.propTypes ={
 }
 
 export default Banner;
+
+*/

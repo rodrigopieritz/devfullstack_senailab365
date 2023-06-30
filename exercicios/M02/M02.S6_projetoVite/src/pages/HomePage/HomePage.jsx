@@ -1,12 +1,17 @@
-
-import Header from '../../components/Header/Header';
+import React, { useContext, useEffect } from "react";
+import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Card from "../../components/Card/Card";
 import Footer from "../../components/Footer/Footer";
-
+import { BannerContext } from "../../context/BannerContext/BannerContext";
 
 export const HomePage = () => {
-    
+  const { setTitle, setSubtitle } = useContext(BannerContext);
+
+  useEffect(() => {
+    setTitle("Bem-Vindor!");
+    setSubtitle("Venha nos conhecer");
+  }, [setTitle, setSubtitle]);
 
   const itemList = [
     {
@@ -32,6 +37,7 @@ export const HomePage = () => {
     image:"https://www.origamid.com/projetos/bikcraft/img/bicicletas/nebula.jpg"},
   ]
  const renderCards = itemList.map((item)=>{
+    
     return (<Card nome={item.nome} valor= {item.valor} descricao= {item.descricao} caracteristicas = {item.caracteristicas} id= {item.id} image={item.image}/>)
  })
   
@@ -40,7 +46,7 @@ export const HomePage = () => {
     <>
       
       <Header />
-      <Banner texto1={'ESCOLHA O MELHOR PARA VOCÊ'} texto2={'NOSSOS PRODUTOS'} />
+      <Banner/>
       {renderCards}
       <Footer/>
       
