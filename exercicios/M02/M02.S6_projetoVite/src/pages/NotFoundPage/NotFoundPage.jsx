@@ -16,3 +16,4 @@ export const NotFoundPage = () => {
     </>
   );
 };
+//componentes já estão integrados
