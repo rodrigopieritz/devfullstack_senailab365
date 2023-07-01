@@ -9,7 +9,7 @@ export const HomePage = () => {
   const { setTitle, setSubtitle } = useContext(BannerContext);
 
   useEffect(() => {
-    setTitle("Bem-Vindor!");
+    setTitle("Bem-Vindor!s");
     setSubtitle("Venha nos conhecer");
   }, [setTitle, setSubtitle]);
 
