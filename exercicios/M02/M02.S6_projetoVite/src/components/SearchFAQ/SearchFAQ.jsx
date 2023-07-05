@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchFAQ = ({ questions }) => {
+const SearchFAQ = ({ questions, handleSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -8,7 +8,7 @@ const SearchFAQ = ({ questions }) => {
     const results = questions.filter((q) =>
       q.question.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setSearchResults(results);
+    handleSearchResults(results);
   };
 
   const renderSearchResults = () => {
@@ -17,7 +17,7 @@ const SearchFAQ = ({ questions }) => {
     }
 
     const resultText = searchResults
-      .map((q) => `Pergunta ${q.id}`)
+      .map((q) => `Verifuqe a pergunta ${q.id}`)
       .join(", ");
 
     return <p>Dê uma olhada na {resultText}.</p>;

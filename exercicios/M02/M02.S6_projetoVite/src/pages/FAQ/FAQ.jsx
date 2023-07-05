@@ -7,7 +7,6 @@ import QuestionsAnswers from "../../components/QuestionsAnswers/QuestionsAnswers
 import SearchFAQ from "../../components/SearchFAQ/SearchFAQ";
 
 export const Faq = () => {
-
   const { setTitle, setSubtitle } = useContext(BannerContext);
 
   useEffect(() => {
@@ -15,14 +14,13 @@ export const Faq = () => {
     setSubtitle("FAQ");
   }, [setTitle, setSubtitle]);
 
-    return (
-      <>
+  return (
+    <>
       <Header />
-      <Banner/>
-      <SearchFAQ/>
-      <QuestionsAnswers/>
-      
-      <Footer/>
-      </>
-    );
-  };
+      <Banner />
+      <SearchFAQ />
+      <QuestionsAnswers />
+      <Footer />
+    </>
+  );
+};
