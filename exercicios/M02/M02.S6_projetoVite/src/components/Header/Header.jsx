@@ -1,3 +1,4 @@
+import LinkComponent from '../LinkComponent/LinkComponent';
 import './Header.css'
 
 const Header =() => {
@@ -6,14 +7,7 @@ const Header =() => {
   <div class="container-fluid">
    <div> <div class="company-logo" href="#">Minha Empresa S.A.</div></div>
     <div class="navbar-">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-        <a class="nav-link" href="#">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contatos</a>
-        </li>
-              </ul>
+     <LinkComponent/>
     </div>
   </div>
 </nav>

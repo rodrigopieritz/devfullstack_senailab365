@@ -1,45 +1,25 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Banner from "./components/Banner/Banner";
-import Card from "./components/Card/Card";
-import Footer from "./components/Footer/Footer";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { ContactPage } from "./pages/ContactPage/ContactPage";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { Products } from "./pages/Products/Products";
+import { Faq } from "./pages/FAQ/FAQ";
+import { BannerProvider } from "./context/BannerContext/BannerContext.jsx";
 
 function App() {
-
-  const itemList = [
-    {
-    id: 1,
-    nome:'Item 1',
-    valor: 15.99,
-    descricao: 'descricao do item 1',
-    caracteristicas: [
-      'característica A',
-      'caracteristica B'
-    ],
-    image:"https://www.origamid.com/projetos/bikcraft/img/bicicletas/nimbus.jpg"},
-        {
-      id: 2,
-      nome:'Item 2',
-      valor: 25.99,
-      descricao: 'descricao do item 2',
-      caracteristicas: [
-        'característica C',
-        'caracteristica D',
-        'caracteristica E'
-      ],
-    image:"https://www.origamid.com/projetos/bikcraft/img/bicicletas/nebula.jpg"},
-  ]
- const renderCards = itemList.map((item)=>{
-    return (<Card nome={item.nome} valor= {item.valor} descricao= {item.descricao} caracteristicas = {item.caracteristicas} id= {item.id} image={item.image}/>)
- })
-  
   return (
-    <>
-      <Header />
-      <Banner texto1={'ESCOLHA O MELHOR PARA VOCÊ'} texto2={'NOSSOS PRODUTOS'} />
-      {renderCards}
-      <Footer/>
-  </>
+   
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        <Route path="products" element={<Products />} />
+        <Route path="faq" element={<Faq />} />
+      </Routes>
+    </Router>
+    
   );
 }
 
